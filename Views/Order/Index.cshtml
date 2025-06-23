@@ -1,0 +1,39 @@
+@model List<Order>
+
+<h2>Order List</h2>
+<a asp-controller="Order" asp-action="CreateOrder" class="btn btn-primary mb-3">Create New Order</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order Number</th>
+            <th>Customer</th>
+            <th>Inventory Item</th>
+            <th>Qty</th>
+            <th>Payment</th>
+            <th>Delivered</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderNumber</td>
+                <td>@order.Customer.CustomerName</td>
+                <td>@order.Inventory.Name</td>
+                <td>@order.Qty</td>
+                <td>@order.PaymentReceived</td>
+                <td>@(order.IsDelivered ? "Yes" : "No")</td>
+                <td>@order.CreateDate.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@order.id" class="btn btn-sm btn-primary">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@order.id" method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

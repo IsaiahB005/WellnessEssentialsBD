@@ -1,0 +1,48 @@
+@model LabInventory.ViewModels.OrderViewModel
+
+<h2>Create New Order</h2>
+
+<form asp-action="CreateOrder" method="post">
+    <h3>Select Customer</h3>
+    <div class="form-group row">
+        <div class="col-md-6">
+            <select name="SelectedCustomerId" asp-for="SelectedCustomerId" asp-items="Model.CustomerList" class="form-control">
+                <option value="">-- Select Customer --</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <button asp-controller="Customer" asp-action="Create" class="btn btn-primary">Create Customer</button>
+        </div>
+    </div>
+
+    <div class="form-group"></div>
+        <label asp-for="PaymentReceived"></label>
+        <input asp-for="PaymentReceived" class="form-control" />
+    <div class="form-group">
+        <label asp-for="IsDelivered" class="control-label"></label>
+        <select asp-for="IsDelivered" class="form-control">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+        <span asp-validation-for="IsDelivered" class="text-danger"></span>
+    </div>
+
+    <hr />
+        <h4>Select Inventory Items and Quantity</h4>
+
+        @for (int i = 0; i < Model.InventorySelections.Count; i++)
+        {
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <input type="hidden" asp-for="InventorySelections[@i].InventoryId" />
+                    <label>@Model.InventorySelections[i].InventoryName</label>
+                </div>
+                <div class="col-md-6">
+                    <input asp-for="InventorySelections[@i].Qty" class="form-control" />
+                </div>
+            </div>
+        }
+    <hr />
+
+    <button type="submit" class="btn btn-primary">Create Order</button>
+</form>
