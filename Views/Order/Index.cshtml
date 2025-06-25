@@ -3,8 +3,8 @@
 <h2>Order List</h2>
 <a asp-controller="Order" asp-action="CreateOrder" class="btn btn-primary mb-3">Create New Order</a>
 
-<table class="table">
-    <thead>
+<table class="table table-bordered">
+    <thead class="thead-dark">
         <tr>
             <th>Order Number</th>
             <th>Customer</th>
@@ -17,11 +17,23 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var order in Model)
+@{
+    var groupedOrders = Model.GroupBy(o => new { o.OrderNumber, o.CustomerId })
+                             .OrderBy(g => g.Key.OrderNumber);
+
+    foreach (var group in groupedOrders)
+    {
+        bool firstRow = true;
+        foreach (var order in group)
         {
             <tr>
-                <td>@order.OrderNumber</td>
-                <td>@order.Customer.CustomerName</td>
+                @if (firstRow)
+                {
+                    <td rowspan="@group.Count()">@group.Key.OrderNumber</td>
+                    <td rowspan="@group.Count()">@order.Customer.CustomerName</td>
+                }
+                @* Only render these once for the group *@
+
                 <td>@order.Inventory.Name</td>
                 <td>@order.Qty</td>
                 <td>@order.PaymentReceived</td>
@@ -29,11 +41,14 @@
                 <td>@order.CreateDate.ToShortDateString()</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@order.id" class="btn btn-sm btn-primary">Edit</a>
-                    <form asp-action="Delete" asp-route-id="@order.id" method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                    <form asp-action="Delete" asp-route-id="@order.id" method="post" style="display:inline;" onsubmit="return confirm('Are you sure?');">
                         <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                     </form>
                 </td>
             </tr>
+            firstRow = false;
         }
+    }
+}
     </tbody>
 </table>

@@ -30,7 +30,7 @@ namespace LabInventory.Controllers{
                     .OrderByDescending(p => p.id)
                     .Select(p => p.ItemBuyPrice)
                     .FirstOrDefault(),
-                    
+
                     ItemSellPrice = _context.Prices
                     .Where(p => p.InventoryId == i.id && p.IsActive)
                     .OrderByDescending(p => p.id)
@@ -38,6 +38,7 @@ namespace LabInventory.Controllers{
                     .FirstOrDefault()
 
                 })
+                .OrderBy(i => i.Inventory.Name)
                 .ToList();
 
             foreach (var item in inventoryVm)
@@ -116,6 +117,7 @@ namespace LabInventory.Controllers{
         {
             var inventory = _context.Inventory.Find(id);
             if (inventory == null) return NotFound();
+
 
             var price = _context.Prices
                 .Where(p => p.InventoryId == id && p.IsActive)

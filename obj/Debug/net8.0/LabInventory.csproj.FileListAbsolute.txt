@@ -276,3 +276,4 @@ E:\Inventory\LabInventory\obj\Debug\net8.0\refint\LabInventory.dll
 E:\Inventory\LabInventory\obj\Debug\net8.0\LabInventory.pdb
 E:\Inventory\LabInventory\obj\Debug\net8.0\LabInventory.genruntimeconfig.cache
 E:\Inventory\LabInventory\obj\Debug\net8.0\ref\LabInventory.dll
+E:\Inventory\LabInventory\obj\Debug\net8.0\LabInventory.sourcelink.json
