@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UuL3zI4/Jqs=",
+  "dgSpecHash": "C3KNhBoCsEE=",
   "success": true,
   "projectFilePath": "E:\\Inventory\\LabInventory\\LabInventory.csproj",
   "expectedPackageFiles": [
@@ -57,6 +57,8 @@
     "C:\\Users\\isaia\\.nuget\\packages\\humanizer.core.zh-hans\\2.14.1\\humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "C:\\Users\\isaia\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
     "C:\\Users\\isaia\\.nuget\\packages\\log4net\\3.0.4\\log4net.3.0.4.nupkg.sha512",
+    "C:\\Users\\isaia\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\6.0.0\\microsoft.aspnetcore.mvc.razor.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\isaia\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\8.0.5\\microsoft.aspnetcore.mvc.razor.runtimecompilation.8.0.5.nupkg.sha512",
     "C:\\Users\\isaia\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.24\\microsoft.aspnetcore.razor.language.6.0.24.nupkg.sha512",
     "C:\\Users\\isaia\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\isaia\\.nuget\\packages\\microsoft.build\\17.10.4\\microsoft.build.17.10.4.nupkg.sha512",
